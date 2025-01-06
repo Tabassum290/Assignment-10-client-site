@@ -18,7 +18,7 @@ const handleRegister = e =>{
   const password= e.target.password.value;
   const photo = e.target.photo.value;
   const user={name,email,photo,password};
-
+console.log(user)
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
   if (!passwordRegex.test(password)) {
     toast.error("Password must contain at least 6 characters, including one letter and one number.");

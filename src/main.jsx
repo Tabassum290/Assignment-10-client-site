@@ -14,6 +14,8 @@ import { ToastContainer } from 'react-toastify'
 import AuthProvider from './Provider/AuthProvider'
 import AddQuery from './Pages/AddQuery'
 import PrivateRoute from './Private/PrivateRoute'
+import QuiryDetails from './Pages/QuiryDetails'
+import Update from './Pages/Update'
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,15 @@ const router = createBrowserRouter([
     element:<Queries/>
   },
   {
+    path:'/querydetails',
+    element:<QuiryDetails/>,
+  },
+  {
+    path:'/update/:id',
+    element:<Update/>,
+    loader: ({params}) => fetch(`http://localhost:4000/query/${params.id}`)
+  },
+  {
     path:'/addquery',
     element:<PrivateRoute><AddQuery/></PrivateRoute>
   },
@@ -43,7 +54,8 @@ const router = createBrowserRouter([
   },
   {
     path:'/myqueries',
-    element:<PrivateRoute><MyQueries/></PrivateRoute>
+    element:<PrivateRoute><MyQueries/></PrivateRoute>,
+    loader: ()=> fetch('http://localhost:4000/query')
   },
   {
     path:'/myrecommandations',
