@@ -4,6 +4,7 @@ import 'swiper/css';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
 import { Slide } from 'react-awesome-reveal';
+import { FaSearch } from 'react-icons/fa';
 const Slider = () => {
     useEffect(() => {
         AOS.init({
@@ -14,6 +15,7 @@ const Slider = () => {
 
     return (
         <div className="banner">
+
             <Swiper
                 spaceBetween={30}
                 slidesPerView={1}
@@ -33,6 +35,12 @@ const Slider = () => {
                        <div className='flex flex-col items-center justify-center'>
                        <h2 className="text-4xl font-bold text-white">Welcome to Our Website</h2>
                        <p className="mt-4">Discover amazing content and connect with the community.</p>
+<div className="w-full border-black border-2 rounded-xl block lg:hidden md:hidden m-6 mx-auto">
+  <label className="input flex items-center gap-2">
+  <input type="text" className="grow" placeholder="Search" />
+<button className='text-black text-2xl'><FaSearch/></button>
+</label>
+  </div>
                        </div>
                     </div>
                 </SwiperSlide>
