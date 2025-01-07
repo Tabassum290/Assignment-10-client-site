@@ -22,11 +22,6 @@ const from = location.state || '/';
   .then(result =>{
     setUser(result.user);
     console.log(result.user.email);
-    // const user = {email : email};
-    // axios.post('http://localhost:4000/jwt',user, { withCredentials: true })
-    // .then(data=> {
-    //   console.log(data);
-    // })
     navigate(from);
     toast.success("Welcome to Query Nest")
   })

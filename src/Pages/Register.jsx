@@ -7,7 +7,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Footer from '../Components/Footer';
 
 const Register = () => {
-const { createNewUser,user,setUser,signinWithGoogle }= useContext(AuthContext);
+const { createNewUser,user,setUser,signinWithGoogle,updateUserProfile }= useContext(AuthContext);
 const navigate = useNavigate();
 const location = useLocation();
 const from = location.state || '/';
@@ -27,8 +27,14 @@ console.log(user)
 
 createNewUser(email,password)
 .then(result =>{
-  navigate(from);
-  setUser(result.user);
+setUser(result.user);
+  updateUserProfile({displayName:name, photoURL:photo})
+  .then(() =>{
+    navigate(from);
+    toast.success('Welcome to Query Nest');
+  }).catch(err=>{
+    console.log(err)
+  })
 })
 .catch(err =>{
   console.log(err.code,err.message);

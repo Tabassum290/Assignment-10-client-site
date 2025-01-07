@@ -37,7 +37,6 @@ const ExtraSection = () => {
             "url(https://i.ibb.co.com/2dWtsMJ/istockphoto-1181409689-2048x2048.jpg)", // Replace with your background image
         }}
       >
-        {/* Overlay to darken background */}
         <div className="absolute inset-0 bg-black/60"></div>
         <div className="relative z-10 text-center">
           <Slide direction="left" duration={800}>
