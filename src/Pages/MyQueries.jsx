@@ -12,8 +12,6 @@ const MyQueries = () => {
   const loadedquery = useLoaderData();
   const [queries, setQueries] = useState([]);
   const navigate = useNavigate();
-
-  console.log(loadedquery)
   useEffect(() => {
     AOS.init({
       duration: 1000,

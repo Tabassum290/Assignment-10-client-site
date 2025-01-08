@@ -104,8 +104,9 @@ const Slider = () => {
             </Swiper>
 
             <Slide direction="left" duration={800}>
-                <h1 className="text-4xl my-6 font-semibold text-center">View Some Query</h1>
+                <h1 className="text-4xl my-6 font-semibold text-center">View Recent Queries</h1>
             </Slide>
+            <hr></hr>
         </div>
     );
 };

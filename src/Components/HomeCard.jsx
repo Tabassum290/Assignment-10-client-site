@@ -8,11 +8,10 @@ useEffect(()=>{
     .then(res=> res.json())
     .then(data=>{
         setQuery(data)
-        console.log(data)
     })
 },[])
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 mx-auto max-w-7xl my-6">
             {
                 query.map(qu=><Card key={qu._id} qu={qu}></Card>)
             }

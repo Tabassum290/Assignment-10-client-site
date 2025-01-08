@@ -1,13 +1,14 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { FaSearch } from "react-icons/fa";
 
 const Navbar = () => {
   const {user,signOutUser} = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSignOut = () =>{
-    console.log('signOut')
 signOutUser();
+navigate('/')
   }
     const links = <>
     {

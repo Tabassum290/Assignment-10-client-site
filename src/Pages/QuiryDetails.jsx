@@ -15,7 +15,7 @@ const QuiryDetails = () => {
     const [recommendationReason, setRecommendationReason] = useState("");
     const [recommendations, setRecommendations] = useState([]);
     useEffect(() => {
-      fetch(`http://localhost:4000/recommendation/${selectedQuery._id}`)
+      fetch(`http://localhost:4000/recommendations/${selectedQuery._id}`)
         .then((res) => res.json())
         .then((data) => setRecommendations(data))
         .catch((error) => console.error("Error fetching recommendations:", error));
@@ -44,7 +44,7 @@ const QuiryDetails = () => {
             timestamp: new Date().toString(),
         };
 
-        fetch(`http://localhost:4000/recommendation`, {
+        fetch(`http://localhost:4000/recommendations`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

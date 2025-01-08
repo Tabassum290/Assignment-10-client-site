@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from 'react';
-
 const AllReccomendations = ({rec}) => {
 const {recommenderEmail,recommendedProductImage,recommendedProductName,recommendationTitle,recommendationReason,timestamp,recommenderName} =rec;
     return (

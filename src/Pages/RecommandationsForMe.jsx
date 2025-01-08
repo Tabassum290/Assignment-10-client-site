@@ -4,23 +4,22 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Loader from '../Components/Loader';
 import { FaInfoCircle } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const RecommendationsForUserQueries = () => {
-  const { user } = useContext(AuthContext); // Get logged-in user's email
-  const [recommendations, setRecommendations] = useState([]); // Store recommendations
-  const [loading, setLoading] = useState(true); // Handle loading state
-  const navigate = useNavigate(); // Navigation hook
+  const { user } = useContext(AuthContext);
+  const [recommendations, setRecommendations] = useState([]); 
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      console.log('User Email:', user.email);  // Log the user's email for debugging
-  
-      fetch(`http://localhost:4000/recommendations?email=${user.email}`)
+      console.log('User Email:', user.email); 
+      fetch(`http://localhost:4000/recommendationforme?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log('Recommendations Data:', data);  // Log the response data
+          console.log('Recommendations Data:', data); 
           setRecommendations(data);
           setLoading(false);
         })
@@ -31,16 +30,10 @@ const RecommendationsForUserQueries = () => {
     }
   }, [user]);
   
-
-  // If the data is still loading, show a loader
   if (loading) {
     return <Loader />;
   }
 
-  // Function to navigate to the details page
-  const handleMoreInfoClick = (recomId) => {
-    navigate(`/query-details/${recomId}`); // Navigate to the details page of the recommendation
-  };
 
   return (
     <div>
@@ -69,12 +62,11 @@ const RecommendationsForUserQueries = () => {
                   <td>{recom.recommendedProductName}</td>
                   <td>{new Date(recom.timestamp).toLocaleString()}</td>
                   <td>
-                    <button
+                    <Link to={`/querydetails/${recom.queryId}`}
                       className="btn btn-sm bg-blue-600 text-white"
-                      onClick={() => handleMoreInfoClick(recom._id)} // Navigate to the details page on click
                     >
                       <FaInfoCircle /> More Info
-                    </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
