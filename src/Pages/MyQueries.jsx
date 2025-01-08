@@ -104,6 +104,7 @@ const MyQueries = () => {
               >
                 Add New Query
               </Link>
+             
             </div>
           ) : (
             <div className="flex flex-col justify-center gap-6">

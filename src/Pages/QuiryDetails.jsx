@@ -14,7 +14,6 @@ const QuiryDetails = () => {
     const [recommendedProductImage, setRecommendedProductImage] = useState("");
     const [recommendationReason, setRecommendationReason] = useState("");
     const [recommendations, setRecommendations] = useState([]);
-    console.log(selectedQuery)
     useEffect(() => {
       fetch(`http://localhost:4000/recommendation/${selectedQuery._id}`)
         .then((res) => res.json())
@@ -37,8 +36,8 @@ const QuiryDetails = () => {
             userEmail: selectedQuery.email,
             userName: selectedQuery.name,
             userImage:selectedQuery.photo,
-            recommenderEmail: selectedQuery.email,
-            recommenderName: selectedQuery.name,
+            recommenderEmail: user.email,
+            recommenderName: user.name,
             queryId: selectedQuery._id,
             queryTitle: selectedQuery.queryTitle,
             productName: selectedQuery.productName,
@@ -83,11 +82,6 @@ const QuiryDetails = () => {
     return (
         <div>
             <Navbar />
-            {/* <section className='w-1/3 mx-auto border-2 gap-3 flex flex-col justify-center items-center p-4 my-6'>
-                <img  src={selectedQuery.photo}   alt="" />
-                <h1 className='text-3xl font-semibold'>Name :{selectedQuery.name} </h1>
-                <p className='text-lg font-semibold'>Email : {selectedQuery.email} </p>
-            </section> */}
             <section className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10'>
              <div className='col-span-2 border p-4 flex flex-col'>
                <div className='flex  w-2/3 p-4'>
