@@ -59,8 +59,7 @@ const QuiryDetails = () => {
                 setRecommendedProductName("");
                 setRecommendedProductImage("");
                 setRecommendationReason("");
-    
-                fetch(`http://localhost:4000/query/${selectedQuery._id}/increment`, {
+                 fetch(`http://localhost:4000/query/${selectedQuery._id}/increment`, {
                     method: "PATCH",
                 })
                 .then((res) => res.json())
@@ -110,8 +109,8 @@ const QuiryDetails = () => {
 </div>
 <hr></hr>
 <div className='flex justify-between text-lg text-gray-600 my-4'>
-     <p>Product Name : {selectedQuery.productName}</p>
-    <p>Posted at: {new Date(selectedQuery.createdAt).toLocaleString()}</p>
+     <p className='bg-blue-600 p-1 text-white rounded-lg'>Product Name : {selectedQuery.productName}</p>
+    <p className='bg-blue-600 p-1 text-white rounded-lg'>Posted at: {new Date(selectedQuery.createdAt).toLocaleString()}</p>
     </div>
 </div>
 <section className="p-4 max-w-7xl mx-auto">

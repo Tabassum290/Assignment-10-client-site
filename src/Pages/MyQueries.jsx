@@ -91,7 +91,7 @@ const MyQueries = () => {
       </div>
       <section>
         <div className="p-4 max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-6">Your Queries</h2>
+          <h2 className="text-3xl font-bold text-center mb-6">My Added Queries</h2>
 
           {loading ? (
             <Loader />
@@ -122,7 +122,7 @@ const MyQueries = () => {
                 </div>
                 <div className='w-3/4 p-4'>
                 <h3 className="text-xl font-semibold mt-2">{query.queryTitle}</h3>
-                <p className='text-sm text-gray-600 mt-4'>Posted Time: {query.createdAt
+                <p className='text-sm text-gray-600 mt-4'>Posted Time: {new Date(query.createdAt).toLocaleString()
                 }</p>
                   <p className="text-md text-gray-900 mt-2">{query.boycottingReason}</p>
  

@@ -7,10 +7,10 @@ const Queries = () => {
     return (
         <div>
             <Navbar/>
-           <section className='max-w-5xl mx-auto my-10'>
+           <section className='max-w-7xl mx-auto my-10'>
             <h1 className='text-center text-3xl font-semibold font-serif mb-4'>All Queries</h1>
             <hr></hr>
-            <div className="flex flex-col justify-center gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-6 mt-4">
               {query.map((query) => (
                 <div
                   key={query._id}
@@ -24,7 +24,8 @@ const Queries = () => {
                   />
                 </div>
                 <div className='w-3/4 p-4'>
-                <h3 className="text-xl font-semibold mt-2">{query.queryTitle}</h3>
+                <h3 className="text-xl font-semibold my-2">{query.queryTitle}</h3>
+                <hr></hr>
                 <p className='text-sm text-gray-600 mt-4'>Posted Time: {new Date(query.createdAt).toLocaleString()}</p>
                   <p className="text-md text-gray-900 mt-2">{query.boycottingReason}</p>
                   <p className="text-md text-gray-900 mt-2">Recommendation Count: {query.recommendationCount}</p>
