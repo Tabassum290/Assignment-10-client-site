@@ -3,8 +3,8 @@ const {recommenderEmail,recommendedProductImage,recommendedProductName,recommend
     return (
         <div>
             <div className="border p-2 mb-4 rounded-lg flex justify-around">
-                <div className='p-4 bg-gray-200'>
-                <img src={recommendedProductImage} alt={recommendedProductName} className="w-24 h-24" />
+                <div className='p-4'>
+                <img src={recommendedProductImage} alt={recommendedProductName} className="lg:w-24 lg:h-24 w-20 h-20" />
                 </div>
                 <div className='w-3/4'>
                 <h4 className="text-xl font-bold">{recommendationTitle}</h4>

@@ -111,11 +111,11 @@ const MyQueries = () => {
                   key={query._id}
                   className="bg-white p-4 rounded-lg shadow-md border-2 border-black flex justify-between"
                 >
-                <div>
+                <div className='flex justify-center items-center'>
                 <img
                     src={query.productImage}
                     alt={query.productName}
-                    className="h-52 w-full p-4"
+                    className="lg:h-52 h-36 w-full p-4"
                   />
                 </div>
                 <div className='w-3/4 p-4'>
@@ -127,19 +127,19 @@ const MyQueries = () => {
                   <div className="mt-16 flex justify-end items-end gap-4">
                     <Link
                       to={`/querydetails/${query._id}`}
-                      className="bg-gray-600 text-white py-2 px-4 rounded-md"
+                      className="bg-gray-600 text-white btn rounded-md"
                     >
                       View Details
                     </Link>
                     <Link
                       to={`/update/${query._id}`}
-                      className="bg-green-800 text-white py-2 px-4 rounded-md"
+                      className="bg-green-800 text-white btn rounded-md"
                     >
                       Update
                     </Link>
                     <button
                       onClick={() => handleDelete(query._id)}
-                      className="bg-red-500 text-white py-2 px-4 rounded-md"
+                      className="bg-red-500 text-white btn rounded-md"
                     >
                       Delete
                     </button>

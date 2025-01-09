@@ -102,7 +102,7 @@ const MyRecommendations = () => {
     <td>{new Date(recom.timestamp).toLocaleString()}</td>
     <td><button 
     onClick={()=>handleDelete(recom._id,recom.queryId)}
-className="btn btn-sm bg-red-600 text-white" >
+className="btn btn-sm bg-red-600 px-4 text-white" >
 Delete <span><FaDeleteLeft></FaDeleteLeft></span> </button>
 </td>
 </tr>

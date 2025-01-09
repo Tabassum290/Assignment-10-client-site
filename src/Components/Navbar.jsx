@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { FaSearch } from "react-icons/fa";
+
 
 const Navbar = () => {
   const {user,signOutUser} = useContext(AuthContext);
+
   const navigate = useNavigate();
-  const handleSignOut = () =>{
+
+const handleSignOut = () =>{
 signOutUser();
 navigate('/')
   }
@@ -23,6 +25,7 @@ navigate('/')
        </>
     }
     </>
+
     return (
         <div className="sticky z-10 top-0 border-b-2 border-y-black bg-white">
           <div className="navbar bg-base-100">
@@ -58,12 +61,7 @@ navigate('/')
     </ul>
   </div>
 <div className="navbar-end flex gap-3">
-  <div className="lg:w-full w-2/3 border-black border-2 rounded-xl hidden lg:block md:block">
-  <label className="input flex items-center gap-2">
-  <input type="text" className="grow" placeholder="Search" />
- <button className='text-black text-2xl'><FaSearch/></button>
-</label>
-  </div>
+ 
 {
 user? <>
   <button onClick={handleSignOut} className="btn btn-outline">Logout</button>

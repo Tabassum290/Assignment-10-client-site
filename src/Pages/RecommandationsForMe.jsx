@@ -63,9 +63,9 @@ const RecommendationsForUserQueries = () => {
                   <td>{new Date(recom.timestamp).toLocaleString()}</td>
                   <td>
                     <Link to={`/querydetails/${recom.queryId}`}
-                      className="btn btn-sm bg-blue-600 text-white"
-                    >
-                      <FaInfoCircle /> More Info
+                      className="btn btn-sm bg-blue-600 text-white px-6"
+                    >More
+                      <span className='hidden md:block lg:block'><FaInfoCircle />Info...</span>
                     </Link>
                   </td>
                 </tr>

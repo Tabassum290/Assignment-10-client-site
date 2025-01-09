@@ -14,10 +14,14 @@ const Card = ({qu}) => {
 	</div>
     <hr></hr>
 	<div>
-		<img src={productImage} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
-		<h2 className="mb-1 text-xl font-semibold">{queryTitle}</h2>
-		<p className="text-sm dark:text-gray-600">{boycottingReason}</p>
+	<div className="flex justify-center items-center">
+		<img src={productImage} alt="" className="w-[400px] p-4 mb-4 h-60 sm:h-96 dark:bg-gray-500" />
+		
 	</div>
+	<h2 className="mb-1 text-xl font-semibold">{queryTitle}</h2>
+	<p className="text-sm dark:text-gray-600">{boycottingReason}</p>
+	</div>
+	
     <hr></hr>
 	<div className="flex flex-wrap justify-between">
 	  <p className="p-2 rounded-3xl">{productName}</p>

@@ -83,16 +83,16 @@ const QuiryDetails = () => {
             <Navbar />
             <section className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10'>
              <div className='col-span-2 border p-4 flex flex-col'>
-               <div className='flex  w-2/3 p-4'>
-               <div className="p-4">
+               <div className='flex  lg:w-2/3 p-4'>
+               <div className="lg:p-4">
   {selectedQuery.photo ? (
     <img className="w-12 h-12 rounded-full" src={selectedQuery.photo}  alt="User" />
   ) : (
     <p>Loading user photo...</p>
   )}
 </div>
-<div className='p-2'>
-<h1 className='text-3xl font-semibold'>Name :{selectedQuery.name} </h1>
+<div className='lg:p-2 p-1'>
+<h1 className='lg:text-3xl text-xl font-semibold'>Name :{selectedQuery.name} </h1>
 <p className='text-lg font-semibold'>Email : {selectedQuery.email} </p>
 </div>
 </div>
@@ -108,7 +108,7 @@ const QuiryDetails = () => {
      <p className='text-black text-lg my-2'>Recommendation Count: {selectedQuery.recommendationCount}</p>
 </div>
 <hr></hr>
-<div className='flex justify-between text-lg text-gray-600 my-4'>
+<div className='flex justify-between lg:text-lg text-gray-600 my-4 gap-2'>
      <p className='bg-blue-600 p-1 text-white rounded-lg'>Product Name : {selectedQuery.productName}</p>
     <p className='bg-blue-600 p-1 text-white rounded-lg'>Posted at: {new Date(selectedQuery.createdAt).toLocaleString()}</p>
     </div>
