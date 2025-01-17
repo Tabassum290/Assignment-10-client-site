@@ -22,7 +22,7 @@ const Slider = () => {
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 3000,
+                    delay: 1000,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}

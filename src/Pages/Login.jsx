@@ -6,6 +6,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import Lottie from 'lottie-react';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 const Login = () => {
     const {user, SignInUser,setUser,signinWithGoogle} = useContext(AuthContext);
 const navigate = useNavigate()

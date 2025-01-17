@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
-import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../Provider/AuthProvider';
-import Swal from 'sweetalert2';
+import React, { useEffect, useState, useContext } from "react";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const query = useLoaderData();
@@ -12,10 +12,10 @@ const Update = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:4000/query')
+    fetch("https://assignment-11-server-side-ebon.vercel.app/query")
       .then((res) => res.json())
       .then((data) => setAllQueries(data))
-      .catch((error) => console.error('Error fetching queries:', error));
+      .catch((error) => console.error("Error fetching queries:", error));
   }, []);
 
   const handleSubmit = (e) => {
@@ -26,7 +26,7 @@ const Update = () => {
     const queryTitle = e.target.queryTitle.value;
     const boycottingReason = e.target.boycottingReason.value;
     const email = user.email;
-    const name = user.displayName || 'Anonymous';
+    const name = user.displayName || "Anonymous";
     const photo = user.photoURL;
     const currentDateTime = new Date().toISOString();
 
@@ -43,33 +43,36 @@ const Update = () => {
       recommendationCount: 0,
     };
 
-    fetch(`http://localhost:4000/query/${query._id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedInfo),
-    })
+    fetch(
+      `https://assignment-11-server-side-ebon.vercel.app/query/${query._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           Swal.fire({
-            title: 'Success!',
-            text: 'Your query has been updated successfully.',
-            icon: 'success',
-            confirmButtonText: 'Okay',
+            title: "Success!",
+            text: "Your query has been updated successfully.",
+            icon: "success",
+            confirmButtonText: "Okay",
           }).then(() => {
-            navigate('/myqueries');
+            navigate("/myqueries");
           });
         }
       })
       .catch((error) => {
-        console.error('Error updating query:', error);
+        console.error("Error updating query:", error);
         Swal.fire({
-          title: 'Error!',
-          text: 'Something went wrong. Please try again later.',
-          icon: 'error',
-          confirmButtonText: 'Okay',
+          title: "Error!",
+          text: "Something went wrong. Please try again later.",
+          icon: "error",
+          confirmButtonText: "Okay",
         });
       });
   };
@@ -78,7 +81,6 @@ const Update = () => {
     <div>
       <Navbar />
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto my-10">
-
         <div className="col-span-2">
           <div className="bg-white text-black p-6 rounded-lg shadow-md w-full ">
             <h1 className="text-3xl font-bold text-gray-900 mb-6">
@@ -152,14 +154,14 @@ const Update = () => {
           </div>
         </div>
 
-      
         <div className="border-2 p-6 rounded-lg shadow-md bg-white">
           <h2 className="text-2xl font-bold mb-4">All Queries</h2>
           <hr className="mb-4" />
           <div>
             {allQueries.length > 0 ? (
               allQueries.map((singleQuery) => (
-                <Link to='/myqueries'
+                <Link
+                  to="/myqueries"
                   key={singleQuery._id}
                   className="mb-4 rounded-lg p-4 shadow-sm"
                 >
@@ -168,7 +170,9 @@ const Update = () => {
                     alt={singleQuery.productName}
                     className="w-full h-32 object-cover rounded-md mb-2"
                   />
-                  <h3 className="text-lg font-semibold">{singleQuery.productName}</h3>
+                  <h3 className="text-lg font-semibold">
+                    {singleQuery.productName}
+                  </h3>
                   <p className="text-gray-700">{singleQuery.queryTitle}</p>
                 </Link>
               ))
