@@ -144,7 +144,6 @@ const MyRecommendations = () => {
                       <button
                         onClick={() => handleDelete(recom._id,recom.queryId)}
                         className="btn btn-sm bg-red-600 px-4 text-white"
-                        disabled={deleting}
                       >
                         Delete <FaDeleteLeft />
                       </button>
