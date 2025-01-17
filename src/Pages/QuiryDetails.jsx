@@ -63,6 +63,10 @@ const QuiryDetails = () => {
             "Recommendation added successfully.",
             "success"
           );
+          setRecommendations((prevRecommendations) => [
+            ...prevRecommendations,
+            { ...recommendationData, _id: data.insertedId },
+          ]);
           setRecommendationTitle("");
           setRecommendedProductName("");
           setRecommendedProductImage("");

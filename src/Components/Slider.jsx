@@ -4,7 +4,6 @@ import 'swiper/css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Slide } from 'react-awesome-reveal';
-import { FaSearch } from 'react-icons/fa';
 import { Autoplay } from 'swiper/modules';
 
 const Slider = () => {
@@ -22,7 +21,7 @@ const Slider = () => {
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 1000,
+                    delay: 1500,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
@@ -47,14 +46,7 @@ const Slider = () => {
                             <p className="mt-4">
                                 Discover amazing content and connect with the community.
                             </p>
-                            <div className="w-full border-black border-2 rounded-xl block lg:hidden md:hidden m-6 mx-auto">
-                                <label className="input flex items-center gap-2">
-                                    <input type="text" className="grow" placeholder="Search" />
-                                    <button className="text-black text-2xl">
-                                        <FaSearch />
-                                    </button>
-                                </label>
-                            </div>
+             
                         </div>
                     </div>
                 </SwiperSlide>

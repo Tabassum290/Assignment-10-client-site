@@ -35,7 +35,7 @@ const Queries = () => {
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
     setItemsPerPage(val);
-    setCurrentPage(0); // Reset to first page whenever items per page changes
+    setCurrentPage(0); 
   };
 
   return (
@@ -63,11 +63,10 @@ const Queries = () => {
 
         <hr></hr>
 
-        {/* Grid Layout depending on itemsPerPage */}
         <div
           className={`grid ${
             itemPerPage === 10 || itemPerPage === 20
-              ? "grid-cols-3"
+              ? "lg:grid-cols-3 md:grid-cols-2"
               : "grid-cols-1 lg:grid-cols-2 md:grid-cols-2"
           } gap-6 mt-4`}
         >

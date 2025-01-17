@@ -11,6 +11,7 @@ const MyRecommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
@@ -29,10 +30,14 @@ const MyRecommendations = () => {
     }
   }, [user]);
 
+
   if (loading) {
     return <Loader />;
   }
+
   const handleDelete = (recomId, queryId) => {
+    console.log("recomId:", recomId, "queryId:", queryId);
+  
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to undo this!",
@@ -51,7 +56,13 @@ const MyRecommendations = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
+            console.log("Delete Response:", data);
+  
+            if (data.result?.deletedCount > 0) {
+              const remainingRecommendations = recommendations.filter(
+                (recommendation) => recommendation._id !== recomId
+              );
+              setRecommendations(remainingRecommendations);
               fetch(
                 `https://assignment-11-server-side-ebon.vercel.app/query/${queryId}/decrement`,
                 {
@@ -59,26 +70,21 @@ const MyRecommendations = () => {
                 }
               )
                 .then((res) => res.json())
-                .then(() => {
-                  const remainingRecom = recommendations.filter(
-                    (recommendation) => recommendation._id !== recomId
-                  );
-                  console.log(remainingRecom);
-                  setRecommendations(remainingRecom);
-                  Swal.fire(
-                    "Deleted!",
-                    "Your Recommendation has been deleted.",
-                    "success"
-                  );
+                .then((updateResponse) => {
+                  console.log("Recommendation count decremented:", updateResponse);
+  
+                  Swal.fire("Deleted!", "Your recommendation has been deleted, and the recommendation count has been updated.", "success");
                 })
                 .catch((error) => {
-                  console.error("Error updating recommendation count:", error);
+                  console.error("Error decrementing recommendation count:", error);
                   Swal.fire(
-                    "Error",
-                    "Failed to update recommendation count. Try again later.",
-                    "error"
+                    "Deleted!",
+                    "Recommendation deleted, but failed to update recommendation count.",
+                    "warning"
                   );
                 });
+            } else {
+              Swal.fire("Error", "Recommendation not found or already deleted.", "error");
             }
           })
           .catch((error) => {
@@ -92,6 +98,13 @@ const MyRecommendations = () => {
       }
     });
   };
+  
+  
+  
+  
+  
+  
+
 
   return (
     <div>
@@ -100,41 +113,48 @@ const MyRecommendations = () => {
         <h1 className="text-3xl font-semibold font-serif text-center my-4 ">
           My Recommendations: {recommendations.length}
         </h1>
-        <hr></hr>
-        <div className="overflow-x-auto max-w-7xl mx-auto my-6">
-          <table className="table table-zebra">
-            {/* head */}
-            <thead>
-              <tr>
-                <th>Product Name</th>
-                <th>Recommended Product Name</th>
-                <th>Time</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {recommendations.map((recom) => (
-                <tr key={recom._id}>
-                  <th>{recom.productName}</th>
-                  <td>{recom.recommendedProductName}</td>
-                  <td>{new Date(recom.timestamp).toLocaleString()}</td>
-                  <td>
-                    <button
-                      onClick={() => handleDelete(recom._id, recom.queryId)}
-                      className="btn btn-sm bg-red-600 px-4 text-white"
-                    >
-                      Delete{" "}
-                      <span>
-                        <FaDeleteLeft></FaDeleteLeft>
-                      </span>{" "}
-                    </button>
-                  </td>
+        <hr />
+        {error && (
+          <p className="text-red-600 text-center">
+            Failed to load recommendations: {error.message}
+          </p>
+        )}
+        {recommendations.length === 0 ? (
+          <p className="text-center text-gray-500 my-6">
+            No recommendations found.
+          </p>
+        ) : (
+          <div className="overflow-x-auto max-w-7xl mx-auto my-6">
+            <table className="table table-zebra">
+              <thead>
+                <tr>
+                  <th>Product Name</th>
+                  <th>Recommended Product Name</th>
+                  <th>Time</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {recommendations.map((recom) => (
+                  <tr key={recom._id}>
+                    <th>{recom.productName}</th>
+                    <td>{recom.recommendedProductName}</td>
+                    <td>{new Date(recom.timestamp).toLocaleString()}</td>
+                    <td>
+                      <button
+                        onClick={() => handleDelete(recom._id,recom.queryId)}
+                        className="btn btn-sm bg-red-600 px-4 text-white"
+                        disabled={deleting}
+                      >
+                        Delete <FaDeleteLeft />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </section>
       <Footer />
     </div>
