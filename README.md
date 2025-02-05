@@ -4,7 +4,7 @@
 The Query Nest  allows users to post queries about products they want to boycott and receive recommendations for alternative products. It provides a platform for users to share their opinions, make recommendations, and interact with the community.
 
 ## Live URL:
-[Visit the live site here](https://query-nest.netlify.app/)
+[Visit the live site here](https://query-nest.netlify.app/) : https://query-nest.netlify.app/
 
 ## Key Features:
 - **User Authentication:** Secure user authentication using Firebase.
