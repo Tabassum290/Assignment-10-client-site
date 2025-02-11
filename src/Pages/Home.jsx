@@ -6,9 +6,9 @@ import HomeCard from "../Components/HomeCard";
 
 const Home = () => {
     return (
-        <div>
+        <div >
             <Navbar></Navbar>
-            <main className="my-8">
+            <main className="max-w-7xl mx-auto px-6">
                <Slider/>
                 <HomeCard/>
                <ExtraSection/>

@@ -13,21 +13,23 @@ navigate('/')
   }
     const links = <>
     {
-      user? <><NavLink to='/' className={'lg:px-3 hover:text-red-700'}>Home</NavLink>
-      <NavLink to='/queries' className={'hover:text-red-700'}>Queries</NavLink>
-      <NavLink to='/recommandationsforme' className={'lg:px-3 hover:text-red-700'}>RecommandationsForMe</NavLink>
-      <NavLink to='/myqueries' className={' hover:text-red-700'}>My Queries</NavLink>
-      <NavLink to='/myrecommandations' className={'lg:px-3 hover:text-red-700'}>MyRecommandations</NavLink></> :
+      user? <><NavLink to='/' className={'lg:px-3 hover:font-bold'}>Home</NavLink>
+      <NavLink to='/queries' className={'hover:font-bold'}>Queries</NavLink>
+      <NavLink to='/recommandationsforme' className={'lg:px-3 hover:font-bold'}>RecommandationsForMe</NavLink>
+      <NavLink to='/myqueries' className={'hover:font-bold'}>My Queries</NavLink>
+      <NavLink to='/myrecommandations' className={'lg:px-3 hover:font-bold'}>MyRecommandations</NavLink></> :
        <>
-           <NavLink to='/' className={'lg:px-3 hover:text-red-700'}>Home</NavLink>
-           <NavLink to='/queries' className={'hover:text-red-700'}>Queries</NavLink>
+           <NavLink to='/' className={' hover:font-bold'}>Home</NavLink>
+           <NavLink to='/queries' className={'lg:px-3 hover:font-bold'}>Queries</NavLink>
+           <NavLink to='/about' className={'hover:font-bold'}>About Us</NavLink>
        </>
     }
     </>
 
     return (
-        <div className="sticky z-10 top-0 border-b-2 border-y-black bg-white">
-          <div className="navbar bg-base-100">
+        <div className="sticky z-10 top-0 border-b-2 border-y-black w-full bg-[#EB5A3C] text-[#EDF4C2]">
+<div className="max-w-7xl mx-auto">
+<div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,12 +48,11 @@ navigate('/')
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-semibold">
+        className="menu menu-sm dropdown-content text-black bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-semibold">
         {links}
       </ul>
     </div>
     <a className="btn btn-ghost text-lg lg:text-3xl md:text-3xl italic">QueryNest</a>
-
   </div>
   
   <div className="navbar-center hidden lg:flex">
@@ -59,18 +60,19 @@ navigate('/')
      {links}
     </ul>
   </div>
-<div className="navbar-end flex gap-3">
+<div className="navbar-end flex gap-3 text-white">
  
 {
 user? <>
   <button onClick={handleSignOut} className="btn btn-outline">Logout</button>
 </>:<>
-<Link to='/login' className="btn btn-outline">Login</Link>
-<Link to='/register' className="btn btn-outline text-center">Register</Link>
+<Link to='/login' className="btn bg-[#EDF4C2] border-none">Login</Link>
+<Link to='/register' className="btn bg-[#EDF4C2] border-none text-center ">Register</Link>
 </>
 }
 </div>
 
+</div>
 </div>
         </div>
     );

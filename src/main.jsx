@@ -16,6 +16,7 @@ import AddQuery from "./Pages/AddQuery";
 import PrivateRoute from "./Private/PrivateRoute";
 import QuiryDetails from "./Pages/QuiryDetails";
 import Update from "./Pages/Update";
+import AboutUs from "./Pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/about",
+    element: <AboutUs />,
   },
   {
     path: "/queries",

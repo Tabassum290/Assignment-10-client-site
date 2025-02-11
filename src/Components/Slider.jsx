@@ -9,7 +9,7 @@ import { Autoplay } from 'swiper/modules';
 const Slider = () => {
     useEffect(() => {
         AOS.init({
-            duration: 1500,
+            duration: 5500,
             once: true,
         });
     }, []);
@@ -21,29 +21,27 @@ const Slider = () => {
                 slidesPerView={1}
                 loop={true}
                 autoplay={{
-                    delay: 1500,
+                    delay: 5500,
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
-                className="mySwiper"
+                className="mySwiper h-[600px] my-2"
             >
                 <SwiperSlide>
                     <div
                         id="slide-1"
                         data-aos="fade-up"
                         style={{
-                            backgroundImage: 'url(https://i.ibb.co/W2d6csZ/istockphoto-1691979037-612x612.webp)', // Fixed URL
+                            backgroundImage: 'url(https://i.ibb.co.com/WNFpF4Yg/ask-questions-faq-problem-curiosity-260nw-2439345127.webp)', // Fixed URL
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                        className="relative h-[500px] text-white rounded-lg flex justify-around p-4"
+                        className="relative h-[600px] text-white rounded-lg flex justify-around"
                     >
-
-                        <div className="absolute inset-0 bg-black/40"></div>
-
+                     <div className="absolute inset-0 bg-black/40"></div>
                         <div className="flex flex-col items-center justify-center z-10">
-                            <h2 className="text-4xl font-bold text-white">Welcome to Our Website</h2>
-                            <p className="mt-4">
+                            <h2 className="text-5xl font-bold text-white">Welcome to Our Website</h2>
+                            <p className="mt-4 text-lg">
                                 Discover amazing content and connect with the community.
                             </p>
              
@@ -56,17 +54,17 @@ const Slider = () => {
                         id="slide-2"
                         data-aos="fade-up"
                         style={{
-                            backgroundImage: 'url(https://i.ibb.co/5BTbsgY/photo-1551731409-43eb3e517a1a.jpg)', // Fixed URL
+                            backgroundImage: 'url(https://i.ibb.co.com/TBJcBSRp/portrait-cheerful-young-african-man-171337-8907.jpg)', // Fixed URL
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                        className="relative h-[500px] text-white rounded-lg flex justify-around p-4"
+                        className="relative h-[600px] text-white rounded-lg flex justify-around p-4"
                     >
                         <div className="absolute inset-0 bg-black/40"></div>
 
                         <div className="flex flex-col justify-center z-10">
-                            <h2 className="text-4xl font-bold">Join Our Platform</h2>
-                            <p className="mt-4">Sign up today and start your journey with us.</p>
+                            <h2 className="text-5xl font-bold">Join Our Platform</h2>
+                            <p className="mt-6 text-lg">Sign up today and start your journey with us.</p>
                         </div>
                     </div>
                 </SwiperSlide>
@@ -80,14 +78,14 @@ const Slider = () => {
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
-                        className="relative h-[500px] text-white rounded-lg flex justify-around p-4"
+                        className="relative h-[600px] text-white rounded-lg flex justify-around p-4"
                     >
 
                         <div className="absolute inset-0 bg-black/40"></div>
 
                         <div className="flex flex-col justify-center z-10">
-                            <h2 className="text-4xl font-bold">Stay Connected</h2>
-                            <p className="mt-4">
+                            <h2 className="text-5xl font-bold">Stay Connected</h2>
+                            <p className="mt-6 text-lg">
                                 Follow us on social media for the latest updates.
                             </p>
                         </div>
