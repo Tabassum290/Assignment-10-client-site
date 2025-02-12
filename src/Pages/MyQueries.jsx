@@ -131,7 +131,7 @@ const MyQueries = () => {
                     />
                   </div>
                   <div className="w-3/4 p-4">
-                    <h3 className="text-xl font-semibold mt-2">
+                    <h3 className="text-xl font-semibold mt-2 text-black">
                       {query.queryTitle}
                     </h3>
                     <p className="text-sm text-gray-600 mt-4">
@@ -144,13 +144,13 @@ const MyQueries = () => {
                     <div className="mt-16 flex justify-end items-end gap-4">
                       <Link
                         to={`/querydetails/${query._id}`}
-                        className="bg-gray-600 text-white btn rounded-md"
+                        className=" btn rounded-md btn-outline"
                       >
                         View Details
                       </Link>
                       <Link
                         to={`/update/${query._id}`}
-                        className="bg-green-800 text-white btn rounded-md"
+                        className="  btn rounded-md btn-outline"
                       >
                         Update
                       </Link>

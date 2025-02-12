@@ -65,7 +65,7 @@ const Queries = () => {
               <div tabIndex={0} role="button" className="btn btn-ouline btn-md mx-6 px-6 w-[120px]">
                 Sort By
               </div>
-              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-56 p-2 shadow">
+              <ul tabIndex={0} className="dropdown-content text-black menu bg-base-100 rounded-box z-[1] w-56 p-2 shadow">
                 <li onClick={() => handleSortChange("asc")}>
                   <a>Recommendation (low to high)</a>
                 </li>
@@ -115,7 +115,7 @@ const Queries = () => {
                 />
               </div>
               <div className="w-3/4 p-4">
-                <h3 className="text-xl font-semibold my-2">{query.queryTitle}</h3>
+                <h3 className="text-xl font-semibold my-2 text-black">{query.queryTitle}</h3>
 
                 <hr />
 
@@ -145,19 +145,20 @@ const Queries = () => {
           {pages.map((page) => (
             <button
               onClick={() => setCurrentPage(page)}
-              className={currentPage === page ? "btn bg-red-600 text-white" : "btn btn-outline"}
+              className={currentPage === page ? "btn bg-red-600 text-white" : "btn btn-outline page"}
               key={page}
             >
               {page + 1}
             </button>
           ))}
 
-          {/* Items per page select */}
-          <select value={itemPerPage} onChange={handleItemsPerPage}>
-            <option value="5">5</option>
+          <select value={itemPerPage} onChange={handleItemsPerPage} >
+            <option className="text-black" value="5">5</option>
             <option value="10">10</option>
             <option value="20">20</option>
           </select>
+
+
         </div>
       </section>
       <Footer />

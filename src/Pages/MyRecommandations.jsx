@@ -120,13 +120,13 @@ const MyRecommendations = () => {
           </p>
         )}
         {recommendations.length === 0 ? (
-          <p className="text-center text-gray-500 my-6">
+          <p className="text-centermy-6">
             No recommendations found.
           </p>
         ) : (
           <div className="overflow-x-auto max-w-7xl mx-auto my-6">
-            <table className="table table-zebra">
-              <thead>
+            <table className="table">
+              <thead className="name">
                 <tr>
                   <th>Product Name</th>
                   <th>Recommended Product Name</th>

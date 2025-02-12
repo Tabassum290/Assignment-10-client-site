@@ -12,7 +12,7 @@ const Update = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://assignment-11-server-side-ebon.vercel.app/query")
+    fetch("https://assignment-11-server-side-ebon.vercel.app/querymore/")
       .then((res) => res.json())
       .then((data) => setAllQueries(data))
       .catch((error) => console.error("Error fetching queries:", error));
@@ -146,7 +146,7 @@ const Update = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gray-900 text-white font-bold py-2 rounded-md hover:bg-gray-700 transition"
+                className="w-full bg-red-600 text-white font-bold py-2 rounded-md hover:bg-gray-700 transition"
               >
                 Update Query
               </button>

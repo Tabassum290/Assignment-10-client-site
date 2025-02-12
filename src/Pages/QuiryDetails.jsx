@@ -139,19 +139,19 @@ const QuiryDetails = () => {
 
           <div className="p-4 ">
             <h1 className="text-2xl">{selectedQuery.queryTitle}</h1>
-            <p className="text-black text-lg my-2">
+            <p className=" text-lg my-2">
               Reason For Boycott: {selectedQuery.boycottingReason}
             </p>
-            <p className="text-black text-lg my-2">
+            <p className="text-lg my-2">
               Recommendation Count: {selectedQuery.recommendationCount}
             </p>
           </div>
           <hr></hr>
           <div className="flex justify-between lg:text-lg text-gray-600 my-4 gap-2">
-            <p className="bg-blue-600 p-1 text-white rounded-lg">
+            <p className="bg-red-600 p-1 text-white rounded-lg">
               Product Name : {selectedQuery.productName}
             </p>
-            <p className="bg-blue-600 p-1 text-white rounded-lg">
+            <p className="bg-red-600 p-1 text-white rounded-lg">
               Posted at: {new Date(selectedQuery.createdAt).toLocaleString()}
             </p>
           </div>
@@ -165,49 +165,49 @@ const QuiryDetails = () => {
             className="bg-gray-100 p-6 rounded-lg shadow-lg max-w-xl mx-auto"
           >
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">
+              <label className="block text-sm font-bold mb-2 text-gray-700">
                 Recommendation Title
               </label>
               <input
                 type="text"
                 name="recommendationTitle"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-md text-gray-700"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">
+              <label className="block text-sm font-bold mb-2 text-gray-700">
                 Recommended Product Name
               </label>
               <input
                 type="text"
                 name="recommendedProductName"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-md text-gray-700"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">
+              <label className="block text-sm font-bold mb-2 text-gray-700">
                 Recommended Product Image
               </label>
               <input
                 type="url"
                 name="recommendedProductImage"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-md text-gray-700"
                 required
               />
             </div>
             <div className="mb-4">
-              <label className="block text-sm font-bold mb-2">
+              <label className="block text-sm font-bold mb-2 text-gray-700">
                 Recommendation Reason
               </label>
               <textarea
                 name="recommendationReason"
-                className="w-full px-4 py-2 border rounded-md"
+                className="w-full px-4 py-2 border rounded-md text-gray-700"
                 required
               ></textarea>
             </div>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center ">
               <button
                 type="submit"
                 className="bg-gray-800 text-white px-6 py-2 rounded-md shadow hover:bg-red-700"
@@ -220,7 +220,7 @@ const QuiryDetails = () => {
       </section>
 
       <section className="p-4 max-w-7xl mx-auto">
-        <h3 className="text-2xl font-semibold text-center mb-4">
+        <h3 className="text-3xl font-semibold text-center mb-4">
           All Recommendations
         </h3>
         {recommendations.length === 0 ? (

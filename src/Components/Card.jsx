@@ -21,7 +21,7 @@ const Card = ({ qu }) => {
 
   return (
     <div>
-      <div className="p-6 space-y-6 overflow-hidden rounded-lg my-6 border border-gray-900 shadow-md">
+      <div className="p-6 space-y-6 overflow-hidden rounded-lg my-6 border border-gray-900 card shadow-md">
         <div>
           <div className="flex space-x-4 mb-4">
             <img
@@ -31,7 +31,7 @@ const Card = ({ qu }) => {
             />
             <div className="flex flex-col space-y-1">
               <span className="text-sm font-semibold">{name}</span>
-              <span className="text-xs text-gray-600">
+              <span className="text-xs">
                 {new Date(createdAt).toLocaleString()}
               </span>
             </div>
@@ -49,7 +49,7 @@ const Card = ({ qu }) => {
           <div className="p-3">
             <h2 className="mb-1 text-xl font-semibold">{queryTitle}</h2>
             <p
-              className={`text-sm text-gray-600 ${
+              className={`text-sm ${
                 !showFullDescription ? "line-clamp-2 overflow-hidden" : ""
               }`}
             >

@@ -12,7 +12,7 @@ const AddQuery = () => {
   const [userProfile, setUserProfile] = useState({});
 
   useEffect(() => {
-    fetch("https://assignment-11-server-side-ebon.vercel.app/query")
+    fetch("https://assignment-11-server-side-ebon.vercel.app/querymore/")
       .then((res) => res.json())
       .then((data) => setAllQueries(data))
       .catch((error) => console.error("Error fetching queries:", error));
@@ -76,68 +76,68 @@ const AddQuery = () => {
   return (
     <div>
       <Navbar />
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-7xl my-10">
-        <div className="col-span-2">
-          <div className=" text-black p-6 rounded-lg shadow-md w-full">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6 ">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-7xl my-10 ">
+        <div className="col-span-2  text-black" >
+          <div className="bg-white p-6 rounded-lg shadow-md w-full">
+            <h1 className="text-3xl font-bold mb-6 ">
               Add Query
             </h1>
             <hr></hr>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-lg font-semibold text-gray-900 my-2">
+                <label className="block text-lg font-semibold my-2">
                   Product Name
                 </label>
                 <input
                   type="text"
                   name="productName"
-                  className="w-full px-4 py-2 border-2 border-black "
+                  className="w-full px-4 py-2 border-2 border-black text-black"
                 />
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-900 mb-2">
+                <label className="block text-lg font-semibold mb-2">
                   Product Brand
                 </label>
                 <input
                   type="text"
                   name="productBrand"
-                  className="w-full px-4 py-2 border-2 border-black "
+                  className="w-full px-4 py-2 border-2 border-black text-black"
                 />
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-900 mb-2">
+                <label className="block text-lg font-semibold mb-2">
                   Product Image URL
                 </label>
                 <input
                   type="url"
                   name="productImage"
-                  className="w-full px-4 py-2 border-2 border-black "
+                  className="w-full px-4 py-2 border-2 border-black text-black"
                 />
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-900 mb-2">
+                <label className="block text-lg font-semibold mb-2">
                   Query Title
                 </label>
                 <input
                   type="text"
                   name="queryTitle"
                   placeholder="e.g., Is there any better product that gives me the same quality?"
-                  className="w-full px-4 py-2 border-2 border-black "
+                  className="w-full px-4 py-2 border-2 border-black text-black"
                 />
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-900 mb-2">
+                <label className="block text-lg font-semibold mb-2">
                   Boycotting Reason Details
                 </label>
                 <textarea
                   name="boycottingReason"
                   rows="4"
-                  className="w-full px-4 py-2 border-2 border-black "
+                  className="w-full px-4 py-2 border-2 border-black text-black"
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gray-900 text-white font-bold py-2 rounded-md hover:bg-gray-700 transition"
+                className="w-full bg-red-600 text-white font-bold py-2 rounded-md hover:bg-gray-700 transition"
               >
                 Add Query
               </button>
@@ -145,7 +145,7 @@ const AddQuery = () => {
           </div>
         </div>
 
-        <div className="border-2 p-6 rounded-lg shadow-md bg-white">
+        <div className="border-2 p-6 rounded-lg shadow-md bg-white text-black">
           <h2 className="text-2xl font-bold mb-4">All Queries</h2>
           <hr className="mb-4" />
           <div>

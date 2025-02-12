@@ -39,13 +39,13 @@ const RecommendationsForUserQueries = () => {
     <div>
       <Navbar />
       <section>
-        <h1 className="text-3xl font-semibold font-serif text-center my-4">
+        <h1 className="text-3xl font-semibold font-serif text-center my-4 ">
           Recommendations for Your Queries: {recommendations.length}
         </h1>
 
         <div className="overflow-x-auto max-w-7xl mx-auto my-6">
-          <table className="table table-zebra">
-            <thead>
+          <table className="table">
+            <thead className="name">
               <tr>
                 <th>Query Title</th>
                 <th>Recommender's Email</th>

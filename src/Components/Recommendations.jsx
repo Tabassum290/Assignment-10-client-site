@@ -9,7 +9,7 @@ const Recommendations = () => {
   const [rec, setRec] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/recommendations")
+    fetch("https://assignment-11-server-side-ebon.vercel.app/recommendations")
       .then((res) => res.json())
       .then((data) => setRec(data))
       .catch((error) => console.error("Error fetching recommendations:", error));
@@ -32,7 +32,7 @@ const Recommendations = () => {
       >
         {rec.map((r) => (
           <SwiperSlide key={r._id} className="flex-shrink-0">
-            <div className="border p-4 mb-4 rounded-lg shadow-lg bg-[#DF9755] w-[300px] h-[400px] ">
+            <div className="border p-4 mb-4 rounded-lg shadow-lg bg-gray-300 text-white w-[300px] h-[400px] ">
               <div className="flex flex-col items-center mb-4">
                 <img
                   src={r.recommendedProductImage}

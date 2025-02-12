@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const AboutUs = () => {
+  const {user} = useContext(AuthContext);
     return (
         <div>
             <Navbar/>
@@ -47,9 +50,14 @@ const AboutUs = () => {
           <p className="text-gray-700 mt-2 mb-8">
             Start asking questions and get recommendations from the community.
           </p>
-          <Link to='/login' className={"mt-8 px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition"}>
+          {
+            user ? <Link to='/' className={"mt-8 px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition"}>
+            Get Started
+          </Link> : <Link to='/login' className={"mt-8 px-6 py-3 bg-red-600 text-white rounded-full hover:bg-red-700 transition"}>
             Get Started
           </Link>
+          }
+          
         </div>
       </div>
     </section>

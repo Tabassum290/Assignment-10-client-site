@@ -14,14 +14,14 @@ const HomeCard = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:4000/querymore?limit=10")
+    fetch("https://assignment-11-server-side-ebon.vercel.app/querymore?limit=10")
       .then((res) => res.json())
       .then((data) => setAllQueries(data))
       .catch((error) => console.error("Error fetching queries:", error));
   }, []);
 
   return (
-    <div className="my-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 gap-6 p-4">
+    <div className="my-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 gap-6 p-4 card">
       <div className="col-span-2">
       {query.map((qu) => (
         <Card key={qu._id} qu={qu}></Card>
@@ -48,7 +48,7 @@ const HomeCard = () => {
                   <h3 className="text-lg font-semibold">
                     {singleQuery.productName}
                   </h3>
-                  <p className="text-gray-700">{singleQuery.queryTitle}</p>
+                  <p>{singleQuery.queryTitle}</p>
                 </Link>
               ))
             ) : (
