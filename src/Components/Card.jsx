@@ -1,8 +1,8 @@
-import { useState} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Card = ({ qu }) => {
-	const [showFullDescription, setShowFullDescription] = useState(false); 
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const {
     productName,
     productImage,
@@ -19,10 +19,9 @@ const Card = ({ qu }) => {
     setShowFullDescription((prev) => !prev);
   };
 
-
   return (
     <div>
-      <div className=" p-6 space-y-6 overflow-hidden rounded-lg my-6 border border-gray-900 shadow-md">
+      <div className="p-6 space-y-6 overflow-hidden rounded-lg my-6 border border-gray-900 shadow-md">
         <div>
           <div className="flex space-x-4 mb-4">
             <img
@@ -39,17 +38,17 @@ const Card = ({ qu }) => {
           </div>
           <hr className="border border-gray-600" />
         </div>
-        <div className="flex">
-          <div className="flex justify-center items-center">
+        <div className="flex flex-col sm:flex-row sm:space-x-4">
+          <div className="flex justify-center items-center mb-4 sm:mb-0">
             <img
               src={productImage}
               alt={productName}
-              className="w-[200px] h-28 mb-4 object-cover"
+              className="w-full sm:w-[200px] sm:h-28 object-cover rounded-lg"
             />
           </div>
           <div className="p-3">
             <h2 className="mb-1 text-xl font-semibold">{queryTitle}</h2>
-			<p
+            <p
               className={`text-sm text-gray-600 ${
                 !showFullDescription ? "line-clamp-2 overflow-hidden" : ""
               }`}
@@ -60,15 +59,20 @@ const Card = ({ qu }) => {
               <span
                 onClick={handleToggleDescription}
                 className="text-blue-600 cursor-pointer"
-              >...
-              </span> )}
-
+              >
+                ...
+              </span>
+            )}
           </div>
         </div>
-        <div className="flex flex-wrap justify-between text-red-900">
-          <div className="flex space-x-2 text-center justify-center items-center">
-            <span className="px-6 py-2 bg-red-600 text-white rounded-3xl">{productName}</span>
-            <span className="px-6 py-2 bg-red-600 text-white  rounded-3xl">{productBrand}</span>
+        <div className="flex flex-wrap justify-between items-center text-red-900">
+          <div className="flex space-x-2 text-center justify-center items-center mb-4 sm:mb-0">
+            <span className="px-6 py-2 bg-red-600 text-white rounded-3xl">
+              {productName}
+            </span>
+            <span className="px-6 py-2 bg-red-600 text-white rounded-3xl">
+              {productBrand}
+            </span>
           </div>
           <Link
             to={`/querydetails/${_id}`}
@@ -78,8 +82,6 @@ const Card = ({ qu }) => {
           </Link>
         </div>
       </div>
-
-  
     </div>
   );
 };

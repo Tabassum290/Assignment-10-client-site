@@ -25,6 +25,7 @@ const Queries = () => {
         { withCredentials: true }
       )
       .then((response) => {
+        console.log(response.data)
         setAllQueries(response.data);
       })
       .catch((error) => {

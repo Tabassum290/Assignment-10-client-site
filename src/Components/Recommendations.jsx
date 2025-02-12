@@ -32,7 +32,7 @@ const Recommendations = () => {
       >
         {rec.map((r) => (
           <SwiperSlide key={r._id} className="flex-shrink-0">
-            <div className="border p-4 mb-4 rounded-lg shadow-lg bg-[#EDF4C2] w-[300px] h-[400px] ">
+            <div className="border p-4 mb-4 rounded-lg shadow-lg bg-[#DF9755] w-[300px] h-[400px] ">
               <div className="flex flex-col items-center mb-4">
                 <img
                   src={r.recommendedProductImage}

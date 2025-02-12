@@ -21,7 +21,7 @@ const HomeCard = () => {
   }, []);
 
   return (
-    <div className="my-6 grid grid-cols-3 gap-6 p-4">
+    <div className="my-6 grid grid-cols-1 lg:grid-cols-3 md:grid-cols-3 gap-6 p-4">
       <div className="col-span-2">
       {query.map((qu) => (
         <Card key={qu._id} qu={qu}></Card>
