@@ -9,6 +9,7 @@ const Queries = () => {
   const [allQueries, setAllQueries] = useState([]);
   const [search, setSearch] = useState("");
   const { count } = useLoaderData();
+  const [sortOrder, setSortOrder] = useState("time");  // Default sort by time
   const [itemPerPage, setItemsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
   const numberOfPages = Math.ceil(count / itemPerPage);
@@ -19,24 +20,36 @@ const Queries = () => {
   }
 
   useEffect(() => {
-    axios
-      .get(
-        `https://assignment-11-server-side-ebon.vercel.app/query?page=${currentPage}&size=${itemPerPage}&search=${search}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
-        console.log(response.data)
-        setAllQueries(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, [search, currentPage, itemPerPage]);
+    const fetchQueries = () => {
+      let url = `https://assignment-11-server-side-ebon.vercel.app/query?page=${currentPage}&size=${itemPerPage}&search=${search}`;
+      
+      if (sortOrder === "asc") {
+        url = `https://assignment-11-server-side-ebon.vercel.app/queryascending?page=${currentPage}&size=${itemPerPage}&search=${search}`;
+      } else if (sortOrder === "desc") {
+        url = `https://assignment-11-server-side-ebon.vercel.app/querydescending?page=${currentPage}&size=${itemPerPage}&search=${search}`;
+      }
+
+      axios
+        .get(url, { withCredentials: true })
+        .then((response) => {
+          setAllQueries(response.data);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    };
+
+    fetchQueries();
+  }, [search, currentPage, itemPerPage, sortOrder]);
 
   const handleItemsPerPage = (e) => {
     const val = parseInt(e.target.value);
     setItemsPerPage(val);
     setCurrentPage(0); 
+  };
+
+  const handleSortChange = (order) => {
+    setSortOrder(order); 
   };
 
   return (
@@ -47,6 +60,24 @@ const Queries = () => {
           <h1 className="text-center lg:text-3xl text-xl font-semibold font-serif mb-4 w-1/2">
             All Queries
           </h1>
+          <div>
+            <div className="dropdown dropdown-bottom">
+              <div tabIndex={0} role="button" className="btn btn-ouline btn-md mx-6 px-6 w-[120px]">
+                Sort By
+              </div>
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-56 p-2 shadow">
+                <li onClick={() => handleSortChange("asc")}>
+                  <a>Recommendation (low to high)</a>
+                </li>
+                <li onClick={() => handleSortChange("desc")}>
+                  <a>Recommendation (high to low)</a>
+                </li>
+                <li onClick={() => handleSortChange("time")}>
+                  <a>Time (latest first)</a>
+                </li>
+              </ul>
+            </div>
+          </div>
           <div className="w-2/3 border-black border-2 rounded-xl">
             <label className="input flex items-center gap-2">
               <input
@@ -62,7 +93,7 @@ const Queries = () => {
           </div>
         </div>
 
-        <hr></hr>
+        <hr className="my-4" />
 
         <div
           className={`grid ${
@@ -74,34 +105,33 @@ const Queries = () => {
           {allQueries.map((query) => (
             <div
               key={query._id}
-              className="bg-white p-4 rounded-lg shadow-md border-2 border-black flex justify-between"
+              className="flex-grow bg-white h-[300px] p-4 rounded-lg shadow-md border-2 border-black flex justify-between"
             >
               <div className="flex justify-center items-center">
                 <img
                   src={query.productImage}
                   alt={query.productName}
-                  className="lg:h-52 h-[200px] w-full p-4"
+                  className="lg:h-52 h-[200px]  p-4 object-contain"
                 />
               </div>
               <div className="w-3/4 p-4">
-                <h3 className="text-xl font-semibold my-2">
-                  {query.queryTitle}
-                </h3>
-                <hr></hr>
+                <h3 className="text-xl font-semibold my-2">{query.queryTitle}</h3>
+
+                <hr />
+
                 <p className="text-sm text-gray-600 mt-4">
                   Posted Time: {new Date(query.createdAt).toLocaleString()}
                 </p>
-                <p className="text-md text-gray-900 mt-2">
+                <p className="text-md text-gray-900 mt-2 line-clamp-3 mb-4">
                   {query.boycottingReason}
                 </p>
-                <p className="text-md text-gray-900 mt-2">
-                  Recommendation Count: {query.recommendationCount}
-                </p>
-
-                <div className="mt-3 flex justify-end items-end gap-4">
+                <div className="mt-3 flex justify-between items-center gap-4">
+                  <p className="text-md text-gray-900">
+                    Recommendation Count: {query.recommendationCount}
+                  </p>
                   <Link
                     to={`/querydetails/${query._id}`}
-                    className="btn bg-red-800 text-white  rounded-md"
+                    className="btn bg-red-600 text-white rounded-md"
                   >
                     Recommend
                   </Link>
@@ -111,14 +141,11 @@ const Queries = () => {
           ))}
         </div>
 
-        {/* Pagination Buttons */}
         <div className="flex flex-row justify-center items-center my-6 gap-6">
           {pages.map((page) => (
             <button
               onClick={() => setCurrentPage(page)}
-              className={
-                currentPage === page ? "btn btn-primary" : "btn btn-outline"
-              }
+              className={currentPage === page ? "btn bg-red-600 text-white" : "btn btn-outline"}
               key={page}
             >
               {page + 1}

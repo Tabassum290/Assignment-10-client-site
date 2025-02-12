@@ -64,7 +64,7 @@ const RecommendationsForUserQueries = () => {
                   <td>
                     <Link
                       to={`/querydetails/${recom.queryId}`}
-                      className="btn btn-sm bg-blue-600 text-white px-6"
+                      className="btn btn-sm bg-red-600 text-white px-6"
                     >
                       More
                       <span className="hidden md:block lg:block">

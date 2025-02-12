@@ -75,7 +75,7 @@ const MyQueries = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="relative text-white h-[460px]"
+        className="relative text-white h-[460px] max-w-7xl mx-auto mt-4"
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative text-white py-16 px-8 text-center shadow-lg rounded-b-lg">
@@ -156,7 +156,7 @@ const MyQueries = () => {
                       </Link>
                       <button
                         onClick={() => handleDelete(query._id)}
-                        className="bg-red-500 text-white btn rounded-md"
+                        className="bg-red-600 text-white btn rounded-md"
                       >
                         Delete
                       </button>

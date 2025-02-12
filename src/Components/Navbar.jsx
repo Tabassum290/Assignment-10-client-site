@@ -17,7 +17,8 @@ navigate('/')
       <NavLink to='/queries' className={'hover:font-bold'}>Queries</NavLink>
       <NavLink to='/recommandationsforme' className={'lg:px-3 hover:font-bold'}>RecommandationsForMe</NavLink>
       <NavLink to='/myqueries' className={'hover:font-bold'}>My Queries</NavLink>
-      <NavLink to='/myrecommandations' className={'lg:px-3 hover:font-bold'}>MyRecommandations</NavLink></> :
+      <NavLink to='/myrecommandations' className={'lg:px-3 hover:font-bold'}>MyRecommandations</NavLink>
+      <NavLink to='/about' className={'hover:font-bold'}>About Us</NavLink></> :
        <>
            <NavLink to='/' className={' hover:font-bold'}>Home</NavLink>
            <NavLink to='/queries' className={'lg:px-3 hover:font-bold'}>Queries</NavLink>

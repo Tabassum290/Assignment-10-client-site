@@ -7,7 +7,6 @@ const Populer = () => {
     fetch("http://localhost:4000/populer")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setRecommendedProducts(data);
       })
       .catch((error) => console.error("Error fetching popular recommendations:", error));
