@@ -4,6 +4,7 @@ import Slider from "../Components/Slider";
 import ExtraSection from "../Components/ExtraSection";
 import HomeCard from "../Components/HomeCard";
 import Populer from "../Components/Populer";
+import Recommendations from "../Components/Recommendations";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                 <HomeCard/>
                 <Populer/>
                <ExtraSection/>
+               <Recommendations/>
             </main>
         <Footer/>
         </div>

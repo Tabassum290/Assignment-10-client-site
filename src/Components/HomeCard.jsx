@@ -29,7 +29,7 @@ const HomeCard = () => {
       </div>
 
       <div>
-	  <div className="border-2 p-6 rounded-lg shadow-md">
+	  <div className="border-2 p-6 rounded-lg shadow-md hidden lg:block md:block">
           <h2 className="text-2xl font-bold mb-4">More Queries...</h2>
           <hr className="mb-4" />
           <div>

@@ -27,7 +27,7 @@ navigate('/')
     </>
 
     return (
-        <div className="sticky z-10 top-0 border-b-2 border-y-black w-full bg-[#EB5A3C] text-[#EDF4C2]">
+        <div className="sticky z-10 top-0 border-b-2 border-y-black w-full bg-red-600 text-[#EDF4C2]">
 <div className="max-w-7xl mx-auto">
 <div className="navbar ">
   <div className="navbar-start">
