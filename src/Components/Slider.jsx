@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Slide } from 'react-awesome-reveal';
-import { Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
 const Slider = () => {
     useEffect(() => {
@@ -17,14 +18,7 @@ const Slider = () => {
     return (
         <div className="banner">
             <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                loop={true}
-                autoplay={{
-                    delay: 5500,
-                    disableOnInteraction: false,
-                }}
-                modules={[Autoplay]}
+                navigation={true} modules={[Navigation]}
                 className="mySwiper h-[600px] my-2"
             >
                 <SwiperSlide>
@@ -32,7 +26,7 @@ const Slider = () => {
                         id="slide-1"
                         data-aos="fade-up"
                         style={{
-                            backgroundImage: 'url(https://i.ibb.co.com/WNFpF4Yg/ask-questions-faq-problem-curiosity-260nw-2439345127.webp)', // Fixed URL
+                            backgroundImage: 'url(https://i.ibb.co.com/TBJcBSRp/portrait-cheerful-young-african-man-171337-8907.jpg)', // Fixed URL
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
@@ -48,13 +42,13 @@ const Slider = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-
+                
                 <SwiperSlide>
                     <div
                         id="slide-2"
                         data-aos="fade-up"
                         style={{
-                            backgroundImage: 'url(https://i.ibb.co.com/TBJcBSRp/portrait-cheerful-young-african-man-171337-8907.jpg)', // Fixed URL
+                            backgroundImage: 'url(https://i.ibb.co.com/WNFpF4Yg/ask-questions-faq-problem-curiosity-260nw-2439345127.webp)', // Fixed URL
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}
@@ -74,7 +68,7 @@ const Slider = () => {
                         id="slide-3"
                         data-aos="fade-up"
                         style={{
-                            backgroundImage: 'url(https://i.ibb.co/grFLtCy/istockphoto-2175339397-612x612.webp)', // Fixed URL
+                            backgroundImage: 'url(https://i.ibb.co.com/jkdVz1BL/boy-is-confused-knowing-where-go-1150-19707.jpg)', // Fixed URL
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
                         }}

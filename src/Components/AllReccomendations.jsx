@@ -9,7 +9,6 @@ const {recommenderEmail,recommendedProductImage,recommendedProductName,recommend
                 <div className='w-3/4'>
                 <h4 className="text-xl font-bold">{recommendationTitle}</h4>
                             <p>{recommendationReason}</p>
-                          
                             <p>Recommended by: {recommenderName}</p>
                             <p>Recommender Email: {recommenderEmail}</p>
                             <p>At:{new Date(timestamp).toLocaleString()}</p>
